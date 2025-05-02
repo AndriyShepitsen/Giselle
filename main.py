@@ -9,4 +9,4 @@ downloaded_html = requests.get(start_url)
 soup = BeautifulSoup(downloaded_html.text)
 
 with open('download.html', 'w') as file:
-    file.write(soup.prettify())
+    file.write(soup.text)

@@ -1,12 +1,21 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
+import os
+from pprint import pprint
+from elasticsearch import Elasticsearch
 
-start_url = 'https://en.wikipedia.org/wiki/Main_Page'
 
-downloaded_html = requests.get(start_url)
+ES_HOME=os.environ['ES_HOME']
+cert_path='/config/certs/http_ca.crt'
 
-soup = BeautifulSoup(downloaded_html.text)
+ELASTIC_PASSWORD = 'PG_goG*Q7q_2u+pcKdlu'
+# Create the client instance
+es = Elasticsearch(
+    'https://localhost:9200',
+    ca_certs=f'{ES_HOME}{cert_path}',
+    basic_auth=('elastic', ELASTIC_PASSWORD)
+)
 
-with open('download.html', 'w') as file:
-    file.write(soup.text)
+client_info=es.info()
+print('Connected to Elasticsearch')
+pprint(client_info.body)
+
+

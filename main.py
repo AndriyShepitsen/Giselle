@@ -8,7 +8,7 @@ cert_path='/config/certs/http_ca.crt'
 
 ELASTIC_PASSWORD = 'PG_goG*Q7q_2u+pcKdlu'
 
-# Create the client instance
+# Create the client instance of Elasticsearch
 es = Elasticsearch(
     'https://localhost:9200',
     ca_certs=f'{ES_HOME}{cert_path}',

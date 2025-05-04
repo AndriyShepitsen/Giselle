@@ -11,7 +11,7 @@ ELASTIC_PASSWORD = 'PG_goG*Q7q_2u+pcKdlu'
 # Create the client instance and let Will be about shortcuts about I don't know turn off so I recently switched to Apple but let it be so least you know how in my charm you can actually type instead of you can even talk instead of but it's not's say we put some coming client again
 es = Elasticsearch(
     'https://localhost:9200',
-    ca_certs=f'{ES_HOME}{cert_path}',
+    ca_certs=f'{ES_HOME}{cert_path}', #all right so we come # the best way in my humble opinion instead of using this graphical
     basic_auth=('elastic', ELASTIC_PASSWORD)
 )
 
